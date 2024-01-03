@@ -1,0 +1,26 @@
+n-Latitude-E7440:~/.codon/bin$ cd
+(base) ian@ian-Latitude-E7440:~$ ./.codon/bin/codon fib.py
+error: Available commands: codon <run|build|doc>
+(base) ian@ian-Latitude-E7440:~$ ./.codon build -release -exe fib.py
+bash: ./.codon: Is a directory
+(base) ian@ian-Latitude-E7440:~$ ./.codon/bin/codon  build -release -exe fib.py
+(base) ian@ian-Latitude-E7440:~$ time ./fib
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 
+
+real	0m0.006s
+user	0m0.006s
+sys	0m0.000s
+(base) ian@ian-Latitude-E7440:~$ time python3 fib.py
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 
+
+real	0m0.024s
+user	0m0.020s
+sys	0m0.004s
+(base) ian@ian-Latitude-E7440:~$ cat fib.py
+def fib(n):
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+fib(1000)
